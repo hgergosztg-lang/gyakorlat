@@ -33,3 +33,11 @@ nav ul li a {
 }
 
 nav ul li.active { background-color: #cc5200; }
+@media screen and (max-width: 768px) {
+    header { flex-direction: column; text-align: center; }
+    header img { margin: 0 0 10px 0; }
+
+    nav ul { flex-direction: column; } /* Mobilon egymás alatt legyenek a gombok */
+    
+    div#wrapper { margin: 5px; }
+}
