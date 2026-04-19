@@ -14,3 +14,9 @@ $lablec = array(
     'copyright' => 'Copyright '.date("Y").'.',
     'ceg' => 'Hallgatói Csoportmunka'
 );
+
+$oldalak = array(
+    '/' => array('fajl' => 'cimlap', 'szoveg' => 'Főoldal', 'menun' => array(1,1)),
+    'kapcsolat' => array('fajl' => 'kapcsolat', 'szoveg' => 'Kapcsolat', 'menun' => array(1,1)),
+    'kepek' => array('fajl' => 'kepek', 'szoveg' => 'Képgaléria', 'menun' => array(1,1))
+);
