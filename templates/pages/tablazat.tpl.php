@@ -1,33 +1,21 @@
-<table>
-    <caption>5. gyakorlat 1. feladat:<br>TÁBLÁZAT</caption>
-    <tr>
-        <th>Employee</th>
-        <th>Salary</th>
-        <th>Bonus</th>
-        <th>Supervisor</th>
-    </tr>
-    <tr>
-        <td>Stephen C. Cox</td>
-        <td>$300</td>
-        <td>$50</td>
-        <td>Bob</td>
-    </tr>
-    <tr>
-        <td>Josephin Tan</td>
-        <td>$150</td>
-        <td>-</td>
-        <td>Annie</td>
-    </tr>
-    <tr>
-        <td>Joyce Ming</td>
-        <td>$200</td>
-        <td>$35</td>
-        <td>Andy</td>
-    </tr>
-    <tr>
-        <td>James A. Pentel</td>
-        <td>$175</td>
-        <td>$25</td>
-        <td>Annie</td>
-    </tr>
-</table>
+<?php
+try {
+    $dbh = new PDO('mysql:host=localhost;dbname=gyakorlat7', 'root', '',
+                    array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+    $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
+
+    // Törlés kezelése: ha a táblázatban a törlés gombra kattintanak
+    if(isset($_GET['torol'])) {
+        $st = $dbh->prepare("DELETE FROM helyseg WHERE az = :id");
+        $st->execute(array(':id' => $_GET['torol']));
+        header("Location: tablazat");
+    }
+
+    // Adatok lekérése a Napfény Tours helyszíneiről
+    $sqlSelect = "SELECT az, nev, orszag FROM helyseg ORDER BY nev";
+    $sth = $dbh->query($sqlSelect);
+    $helysegek = $sth->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $hiba = "Hiba az adatok lekérésekor: " . $e->getMessage();
+}
+?>
