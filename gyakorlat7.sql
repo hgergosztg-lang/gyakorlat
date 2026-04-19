@@ -33,3 +33,14 @@ CREATE TABLE helyseg (
     nev VARCHAR(100),
     orszag VARCHAR(100)
 );
+
+CREATE TABLE szalloda (
+    az VARCHAR(5) PRIMARY KEY,
+    nev VARCHAR(100),
+    besorolas INT,
+    helyseg_az INT,
+    tengerpart_tav INT,
+    repter_tav INT,
+    felpanzio TINYINT(1),
+    FOREIGN KEY (helyseg_az) REFERENCES helyseg(az)
+);
