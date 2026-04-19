@@ -17,6 +17,22 @@
     <input type="submit" value="Küldés">
 </form>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2726.3375296155727!2d19.66695091525771!3d46.89607994478184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4743da7a6c479e1d%3A0xc8292b3f6dc69e7f!2sPallasz+Ath%C3%A9n%C3%A9+Egyetem+GAMF+Kar!5e0!3m2!1shu!2shu!4v1475753185783" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<script>
+function ellenoriz() {
+    var nev = document.getElementById('nev').value;
+    var szoveg = document.getElementById('szoveg').value;
+    
+    if (nev.trim().length < 3) {
+        alert("Kérjük, adjon meg egy érvényes nevet (min. 3 karakter)!");
+        return false;
+    }
+    if (szoveg.trim().length < 10) {
+        alert("Az üzenetnek legalább 10 karakter hosszúnak kell lennie!");
+        return false;
+    }
+    return true;
+}
+</script>
+
 <br>
-<a target="_blank" href="https://www.google.hu/maps/place/Pallasz+Ath%C3%A9n%C3%A9+Egyetem+GAMF+Kar/@46.8960799,19.6669509,17z/data=!3m1!4b1!4m5!3m4!1s0x4743da7a6c479e1d:0xc8292b3f6dc69e7f!8m2!3d46.8960763!4d19.6691396?hl=hu">Nagyobb térkép</a>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2725.2657430485984!2d19.664539615606684!3d46.89607987914389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4743da0f0f3531b9%3A0x669736e676106683!2sNeumann+J%C3%A1nos+Egyetem+GAMF+Kar!5e0!3m2!1shu!2shu!4v1491811824401" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
