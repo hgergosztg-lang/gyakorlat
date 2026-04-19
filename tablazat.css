@@ -18,3 +18,11 @@ td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Kiemelés, ha az egér felette van */
+    transition: background-color 0.2s;
+}
