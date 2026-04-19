@@ -44,3 +44,6 @@ CREATE TABLE szalloda (
     felpanzio TINYINT(1),
     FOREIGN KEY (helyseg_az) REFERENCES helyseg(az)
 );
+
+INSERT INTO helyseg VALUES (1, 'Sousse', 'Tunézia');
+INSERT INTO szalloda VALUES ('BS', 'Baron Resort', 5, 3, 0, 15, 1);
