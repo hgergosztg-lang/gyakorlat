@@ -20,3 +20,7 @@ $oldalak = array(
     'kapcsolat' => array('fajl' => 'kapcsolat', 'szoveg' => 'Kapcsolat', 'menun' => array(1,1)),
     'kepek' => array('fajl' => 'kepek', 'szoveg' => 'Képgaléria', 'menun' => array(1,1))
 );
+$oldalak += array(
+    'uzenetek' => array('fajl' => 'uzenetek', 'szoveg' => 'Üzenetek', 'menun' => array(0,1)),
+    'crud' => array('fajl' => 'crud', 'szoveg' => 'Adatkezelés', 'menun' => array(1,1))
+);
