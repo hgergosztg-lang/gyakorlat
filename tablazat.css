@@ -1,1 +1,20 @@
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+th {
+    background-color: #1E459E; /* Sötétkék fejléc, mint a stilus.css gombjai */
+    color: white;
+    text-align: left;
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
