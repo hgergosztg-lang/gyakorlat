@@ -26,3 +26,24 @@ tr:hover {
     background-color: #f1f1f1; /* Kiemelés, ha az egér felette van */
     transition: background-color 0.2s;
 }
+.btn-edit, .btn-delete {
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    display: inline-block;
+    margin: 2px;
+}
+
+.btn-edit {
+    background-color: #007bff; /* Kék */
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Piros */
+}
+
+.btn-edit:hover { background-color: #0056b3; }
+.btn-delete:hover { background-color: #a71d2a; }
