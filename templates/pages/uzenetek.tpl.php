@@ -1,22 +1,28 @@
-<?php if (count($uzenetek) > 0) : ?>
-    <table>
+<h2>Beérkezett üzenetek</h2>
+
+<?php if (isset($hiba)): ?>
+    <p style="color: red;"><?= $hiba ?></p>
+<?php endif; ?>
+
+<?php if (count($uzenetek) > 0): ?>
+    <table border="1" style="width:100%; border-collapse: collapse;">
         <thead>
-            <tr>
-                <th>Küldő neve</th>
-                <th>Időpont</th>
+            <tr style="background-color: #eee;">
+                <th>Küldő</th>
+                <th>Dátum</th>
                 <th>Üzenet</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($uzenetek as $sor) : ?>
+            <?php foreach ($uzenetek as $sor): ?>
                 <tr>
-                    <td data-label="Név:"><?= htmlspecialchars($sor['nev'] == "" ? "Vendég" : $sor['nev']) ?></td>
-                    <td data-label="Időpont:"><?= $sor['idopont'] ?></td>
-                    <td data-label="Üzenet:"><?= htmlspecialchars($sor['szoveg']) ?></td>
+                    <td><?= htmlspecialchars($sor['felhasznalo_nev']) ?></td>
+                    <td><?= $sor['idopont'] ?></td>
+                    <td><?= htmlspecialchars($sor['uzenet']) ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-<?php else : ?>
-    <p>Még nem érkezett üzenet.</p>
+<?php else: ?>
+    <p>Még nem érkezett üzenet az adatbázisba.</p>
 <?php endif; ?>
