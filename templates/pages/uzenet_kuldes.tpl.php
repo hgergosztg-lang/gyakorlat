@@ -1,15 +1,26 @@
 <h2>Üzenetküldés állapota</h2>
-<div class="visszajelzes">
+
+<div class="visszajelzes" style="padding: 20px; border: 1px solid #ccc; background: #f9f9f9; border-radius: 8px;">
     <?php if(isset($siker)): ?>
-        <p style="color: green; font-weight: bold;"><?= $siker ?></p>
-        <p>Beküldött név: <?= htmlspecialchars($_POST['nev']) ?></p>
-        <p>Üzenet: <?= htmlspecialchars($_POST['szoveg']) ?></p>
+        <p style="color: green; font-weight: bold; font-size: 1.2em;">
+            <?= $siker ?>
+        </p>
+        <hr>
+        <p><strong>Beküldött adatok:</strong></p>
+        <p>Név: <?= htmlspecialchars($_POST['nev']) ?></p>
+        <p>Üzenet: <?= nl2br(htmlspecialchars($_POST['szoveg'])) ?></p>
+        
+        <br>
+        <a href="./index.php?cimlap" style="text-decoration: none; color: blue;">&laquo; Vissza a főoldalra</a>
     <?php endif; ?>
 
     <?php if(isset($hiba)): ?>
-        <p style="color: red; font-weight: bold;"><?= $hiba ?></p>
-        <a href="kapcsolat" class="btn-edit">Vissza az űrlaphoz</a>
+        <p style="color: red; font-weight: bold; font-size: 1.2em;">
+            <?= $hiba ?>
+        </p>
+        <p>Kérjük, ellenőrizze az adatokat és próbálja újra.</p>
+        
+        <br>
+        <a href="javascript:history.back()" style="text-decoration: none; color: blue;">&laquo; Vissza az űrlaphoz</a>
     <?php endif; ?>
-    <br>
-    <a href="." class="btn-edit">Vissza a főoldalra</a>
-</div> 
+</div>
