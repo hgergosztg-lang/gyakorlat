@@ -27,7 +27,7 @@
                         <?php if(!isset($_SESSION['login']) && $oldal['menun'][0] || isset($_SESSION['login']) && $oldal['menun'][1]) { ?>
                             <li<?= (($oldal == $keres) ? ' class="active"' : '') ?>>
                                 <!-- A javított link: ha a főoldal (/), akkor pont, egyébként kérdőjel + url -->
-                                <a href="<?= ($url == '/') ? '.' : ('?' . $url) ?>">
+                                <a href="<?= ($url == '/') ? './index.php' : ('./index.php?' . $url) ?>">
                                     <?= $oldal['szoveg'] ?>
                                 </a>
                             </li>
