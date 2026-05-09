@@ -1,23 +1,27 @@
 <?php
-if(isset($_POST['nev']) && isset($_POST['orszag'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['login'])) {
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=gyakorlat7', 'root', '',
+        $dbh = new PDO("mysql:host=localhost;dbname=gamf_admin", "gamf_admin", "Gamf123.",
                         array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
         
-        if($_POST['id'] != "") {
-            // Módosítás (Update)
-            $sql = "UPDATE helyseg SET nev = :n, orszag = :o WHERE az = :id";
-            $sth = $dbh->prepare($sql);
-            $sth->execute(array(':n' => $_POST['nev'], ':o' => $_POST['orszag'], ':id' => $_POST['id']));
-        } else {
-            // Új felvétel (Insert) - az ID-t a DB adja (auto_increment)
-            $sql = "INSERT INTO helyseg (nev, orszag) VALUES (:n, :o)";
-            $sth = $dbh->prepare($sql);
-            $sth->execute(array(':n' => $_POST['nev'], ':o' => $_POST['orszag']));
+        $az = (int)$_POST['az'];
+        $vnev = $_POST['nev'];
+        $orszag = $_POST['orszag'];
+
+        if ($az == 0) { // Új helység
+            $sql = "INSERT INTO helysegek (nev, orszag) VALUES (:nev, :orszag)";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute([':nev' => $vnev, ':orszag' => $orszag]);
+        } else { // Módosítás
+            $sql = "UPDATE helysegek SET nev = :nev, orszag = :orszag WHERE az = :az";
+            $stmt = $dbh->prepare($sql);
+            $stmt->execute([':nev' => $vnev, ':orszag' => $orszag, ':az' => $az]);
         }
-        header("Location: tablazat");
+        
+        header("Location: ./index.php?tablazat");
+        exit;
     } catch (PDOException $e) {
-        die("Hiba történt a mentés során.");
+        die("Hiba a mentés során: " . $e->getMessage());
     }
 }
 ?>
