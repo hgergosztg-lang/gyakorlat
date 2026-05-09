@@ -1,14 +1,15 @@
 <?php
 $uzenetek = array();
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=gyakorlat7', 'root', '',
+    $dbh = new PDO("mysql:host=localhost;dbname=gamf_admin", "gamf_admin", "Gamf123.",
                     array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
     $dbh->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
-  
-    $sqlSelect = "SELECT nev, idopont, szoveg FROM uzenetek ORDER BY idopont DESC";
+
+    // A te táblád oszlopai: felhasznalo_nev, idopont, uzenet
+    $sqlSelect = "SELECT felhasznalo_nev, idopont, uzenet FROM uzenetek ORDER BY idopont DESC";
     $sth = $dbh->query($sqlSelect);
     $uzenetek = $sth->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    $hiba = "Nem sikerült az üzenetek betöltése.";
+    $hiba = "Hiba az üzenetek lekérésekor: " . $e->getMessage();
 }
 ?>
